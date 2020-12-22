@@ -1,7 +1,8 @@
 # internet_connection_dash
 
-[! https://img.shields.io/github/license/tim-fan/internet_connection_dash] [! https://img.shields.io/badge/Made%20at-Starschema-red]
-Dashboard for monitoring internet connectivity
+Dashboard for monitoring internet connectivity, as monitored by [internet_connection_monitor](https://github.com/tim-fan/internet_connection_monitor) and recorder by [internet_connection_datalogging](https://github.com/tim-fan/internet_connection_datalogging).
+
+This package was bootstrapped by [cookiecutter-dash](https://chrisvoncsefalvay.com/2019/09/11/cookiecutter-dash/), hence there are a few components initialised but unused (the dockerfile, makefile, assets/components/data subdirectories, etc).
 
 
 ## Running locally
