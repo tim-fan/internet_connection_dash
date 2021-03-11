@@ -49,16 +49,21 @@ def create_plot():
 
     df = pd.read_csv(
         connection_log_url,
-        converters={"timestamp":dateparse, "ping_successful":bool })
+        converters={"timestamp":dateparse })
+
     # give user friendly col names
     df = df.rename(columns=dict(
-        timestamp="Timestamp",
+        timestamp="Time",
         ssid="Network",
-        device_connected="Can connect to network",
-        ping_successful="Internet connected",
+        device_connected="Connected to WiFi",
+        ping_successful="Connected to internet",
     ))
-    fig = px.line(df, x="Timestamp", y="Internet connected", color="Network")
+
+    df = pd.melt(df, id_vars=["Time", "Network"], var_name="Test", value_name="Is connected")
+
+    fig = px.line(df, x="Time", y="Is connected", color="Test", height=300)
     fig.data[0].update(mode='markers+lines')
+    fig.data[1].update(mode='markers+lines')
     return fig
 
 graph = dcc.Graph(
